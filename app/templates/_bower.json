@@ -1,6 +1,10 @@
 {
-  "name": "package",
+  "name": "<%= _.slugify(appName) %>",
   "version": "0.0.0",
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "2.1.0",
+    "modernizr": "~2.7.2"<% if (includeNormalize) { %>,
+    "normalize.css": "~3.0.1"<% } %>
+  }
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "generator-gulp-rk",
-  "version": "0.0.0",
-  "description": "Yeoman generator",
+  "version": "0.1.0",
+  "description": "Yeoman generator using gulp.js.",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "richardkall/generator-gulp-rk",
