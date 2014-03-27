@@ -4,6 +4,7 @@
 
 ##Features
 - Bower for dependency management
+- Bourbon _(optional)_
 - CSS autoprefixing
 - HTML, CSS & JS minification
 - Image optimization
@@ -54,7 +55,6 @@ $ gulp
 - Asset revisioning
 - Custom Modernizr builds
 - Bootstrap
-- Bourbon
 - Ember.js/Handlebars
 - Image resizing (retina/50%)
 - Image sprites

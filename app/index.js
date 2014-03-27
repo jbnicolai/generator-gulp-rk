@@ -26,6 +26,10 @@ var GulpRkGenerator = yeoman.generators.Base.extend({
       message: 'What else would you like to include?',
       type: 'checkbox',
       choices: [{
+        name: 'Bourbon',
+        value: 'includeBourbon',
+        checked: false
+      }, {
         name: 'Normalize.css',
         value: 'includeNormalize',
         checked: true
@@ -43,6 +47,7 @@ var GulpRkGenerator = yeoman.generators.Base.extend({
 
       this.appName = props.appName;
       this.includeNormalize = hasFeature('includeNormalize');
+      this.includeBourbon = hasFeature('includeBourbon');
 
       done();
     }.bind(this));
