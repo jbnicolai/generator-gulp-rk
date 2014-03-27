@@ -20,6 +20,17 @@
     "app"
   ],
   "keywords": [
+    "autoprefix",
+    "bower",
+    "gulp"
+    "jquery"
+    "linting",
+    "livereload",
+    "minify",
+    "modernizr",
+    "normalize",
+    "optimize",
+    "sass",
     "yeoman-generator"
   ],
   "dependencies": {
