@@ -3,15 +3,14 @@
 [Yeoman](http://yeoman.io) generator using [gulp.js](http://gulpjs.com). Work in progress.
 
 ##Features
+- Bootstrap/Bourbon/Normalize.css _(optional)_
 - Bower for dependency management
-- Bourbon _(optional)_
 - CSS autoprefixing
 - HTML, CSS & JS minification
 - Image optimization
 - JS linting
 - LiveReload
 - Modernizr
-- Normalize.css _(optional)_
 - SASS compilation
 - jQuery
 
@@ -54,7 +53,6 @@ $ gulp
 ##Ideas/to do
 - Asset revisioning
 - Custom Modernizr builds
-- Bootstrap
 - Ember.js/Handlebars
 - Image resizing (retina/50%)
 - Image sprites

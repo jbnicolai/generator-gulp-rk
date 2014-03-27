@@ -22,15 +22,26 @@ var GulpRkGenerator = yeoman.generators.Base.extend({
     console.log(chalk.magenta('Hello. Out of the box I include ' + chalk.green('jQuery') + ' and ' + chalk.green('Modernizr') + '.'));
 
     var prompts = [{
+      name: 'cssFramework',
+      message: 'Which ' + chalk.green('CSS framework') + ' would you like to include?',
+      type: 'list',
+      default: 1,
+      choices: [{
+        name: 'None',
+        value: 'none'
+      }, {
+        name: 'Bourbon',
+        value: 'includeBourbon'
+      }, {
+        name: 'Bootstrap',
+        value: 'includeBootstrap'
+      }]
+    }, {
       name: 'features',
       message: 'What else would you like to include?',
       type: 'checkbox',
       choices: [{
-        name: 'Bourbon',
-        value: 'includeBourbon',
-        checked: false
-      }, {
-        name: 'Normalize.css',
+        name: 'Normalize.css (not required for ' + chalk.green('Bootstrap') + ')',
         value: 'includeNormalize',
         checked: true
       }]
@@ -42,12 +53,14 @@ var GulpRkGenerator = yeoman.generators.Base.extend({
 
     this.prompt(prompts, function (props) {
       var features = props.features;
+      features.push(props.cssFramework);
 
       function hasFeature(feat) { return features.indexOf(feat) !== -1; }
 
       this.appName = props.appName;
-      this.includeNormalize = hasFeature('includeNormalize');
+      this.includeBootstrap = hasFeature('includeBootstrap');
       this.includeBourbon = hasFeature('includeBourbon');
+      this.includeNormalize = hasFeature('includeNormalize');
 
       done();
     }.bind(this));

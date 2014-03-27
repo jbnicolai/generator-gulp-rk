@@ -1,1 +1,1 @@
-<% if (includeBourbon) { %>@import 'bourbon/dist/bourbon';<% } %>
+<% if (includeBootstrap) { %>@import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';<% } else if (includeBourbon) { %>@import 'bourbon/dist/bourbon';<% } %>
