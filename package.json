@@ -22,8 +22,8 @@
   "keywords": [
     "autoprefix",
     "bower",
-    "gulp"
-    "jquery"
+    "gulp",
+    "jquery",
     "linting",
     "livereload",
     "minify",
