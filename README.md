@@ -7,7 +7,7 @@
 - Bower for dependency management
 - CSS autoprefixing
 - HTML, CSS & JS minification
-- Image optimization
+- Image optimization & [resizing](#generate-regular-images-from-2x-images)
 - JS linting
 - LiveReload
 - Modernizr
@@ -50,11 +50,18 @@ Build project:
 $ gulp
 ```
 
+##Notes
+
+###Generate regular images from @2x images
+
+The `resize` task will search for images named `*@2x.*` inside `app/assets/images/` and create copies at half the size. It runs automatically within the watch/build task.
+
+Make sure [ImageMagick](http://www.imagemagick.org/) is installed on your system and set up in your $PATH.
+
 ##Ideas/to do
 - Asset revisioning
 - Custom Modernizr builds
 - Ember.js/Handlebars
-- Image resizing (retina/50%)
 - Image sprites
 - Jasmine task
 - Jekyll

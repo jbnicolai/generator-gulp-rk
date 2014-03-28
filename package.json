@@ -1,6 +1,6 @@
 {
   "name": "generator-gulp-rk",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Yeoman generator using gulp.js.",
   "license": "MIT",
   "main": "app/index.js",
@@ -30,6 +30,8 @@
     "modernizr",
     "normalize",
     "optimize",
+    "resize",
+    "retina",
     "sass",
     "yeoman-generator"
   ],
