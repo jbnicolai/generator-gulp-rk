@@ -7,7 +7,8 @@
 - Bower for dependency management
 - CSS autoprefixing
 - HTML, CSS & JS minification
-- Image optimization & [resizing](#generate-regular-images-from-2x-images)
+- Image optimization & resizing ([see notes](#resize-task))
+- Jasmine + Karma
 - JS linting
 - LiveReload
 - Modernizr
@@ -38,13 +39,19 @@ $ yo gulp-rk
 
 ##Gulp tasks
 
-Run server:
+Run development server:
 
 ```
 $ gulp watch
 ```
 
-Build project:
+Run tests with Karma:
+
+```
+$ gulp test
+```
+
+Clean up old files, run tests and build project:
 
 ```
 $ gulp
@@ -52,18 +59,17 @@ $ gulp
 
 ##Notes
 
-###Generate regular images from @2x images
+###resize task
 
-The `resize` task will search for images named `*@2x.*` inside `app/assets/images/` and create copies at half the size. It runs automatically within the watch/build task.
+Search for images named `*@2x.*` inside `app/assets/images/` and create copies at half the size. Make sure [ImageMagick](http://www.imagemagick.org/) is installed on your system and set up in your $PATH.
 
-Make sure [ImageMagick](http://www.imagemagick.org/) is installed on your system and set up in your $PATH.
+*Runs automatically within the watch and build tasks.*
 
 ##Ideas/to do
 - Asset revisioning
 - Custom Modernizr builds
 - Ember.js/Handlebars
 - Image sprites
-- Jasmine task
 - Jekyll
 - More generator tests
 - A better name...
