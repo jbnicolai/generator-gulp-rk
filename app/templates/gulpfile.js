@@ -20,16 +20,6 @@ gulp.task('default', ['clean', 'test'], function () {
   gulp.start('build');
 });
 
-gulp.task('resize', function () {
-  return gulp.src('app/assets/images/**@2x.png')
-    .pipe(plugins.imageResize({
-      imageMagick: true,
-      width: '50%'
-    }))
-    .pipe(plugins.rename(function (path) { path.basename = path.basename.replace('@2x', ''); }))
-    .pipe(gulp.dest('app/assets/images'));
-});
-
 gulp.task('html', ['stylesheets', 'javascripts'], function () {
   var cssFilter = plugins.filter('**/*.css'),
       jsFilter = plugins.filter('**/*.js'),
@@ -72,6 +62,16 @@ gulp.task('javascripts', function () {
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.jshint.reporter('default'))
     .pipe(plugins.size());
+});
+
+gulp.task('resize', function () {
+  return gulp.src('app/assets/images/**@2x.png')
+    .pipe(plugins.imageResize({
+      imageMagick: true,
+      width: '50%'
+    }))
+    .pipe(plugins.rename(function (path) { path.basename = path.basename.replace('@2x', ''); }))
+    .pipe(gulp.dest('app/assets/images'));
 });
 
 gulp.task('serve', ['connect', 'stylesheets', 'resize'], function () {
