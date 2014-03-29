@@ -69,14 +69,18 @@ var GulpRkGenerator = yeoman.generators.Base.extend({
   app: function () {
     this.mkdir('app');
     this.mkdir('app/assets/images');
+    this.mkdir('spec/fixtures');
 
+    this.copy('Gemfile', 'Gemfile');
     this.copy('_bower.json', 'bower.json');
     this.copy('_package.json', 'package.json');
-    this.copy('Gemfile', 'Gemfile');
     this.copy('assets/javascripts/app.js', 'app/assets/javascripts/app.js');
     this.copy('assets/stylesheets/app.scss', 'app/assets/stylesheets/app.scss');
     this.copy('bowerrc', '.bowerrc');
     this.copy('gitignore', '.gitignore');
+    this.copy('karma.conf.js', 'karma.conf.js');
+    this.copy('spec/javascripts/exampleSpec.js', 'spec/javascripts/exampleSpec.js');
+    this.copy('spec/javascripts/helpers/specHelper.js', 'spec/javascripts/helpers/specHelper.js');
 
     this.template('gulpfile.js');
     this.template('index.html', 'app/index.html');

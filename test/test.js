@@ -36,7 +36,10 @@ describe('gulp-rk generator', function () {
       'app/index.html',
       'bower.json',
       'gulpfile.js',
-      'package.json'
+      'karma.conf.js',
+      'package.json',
+      'spec/javascripts/exampleSpec.js',
+      'spec/javascripts/helpers/specHelper.js'
     ];
 
     helpers.mockPrompt(this.app, {

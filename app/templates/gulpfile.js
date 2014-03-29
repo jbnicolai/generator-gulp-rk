@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp'),
+    karma = require('karma').server,
     open = require('open'),
     plugins = require('gulp-load-plugins')();
 
@@ -10,12 +11,12 @@ plugins.useref = require('gulp-useref');
 gulp.task('build', ['html', 'images']);
 
 gulp.task('clean', function () {
-  gulp.src(['dist'], { read: false }).pipe(plugins.clean());
+  return gulp.src(['dist'], { read: false }).pipe(plugins.clean());
 });
 
 gulp.task('connect', plugins.connect.server());
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', ['clean', 'test'], function () {
   gulp.start('build');
 });
 
@@ -34,7 +35,7 @@ gulp.task('html', ['stylesheets', 'javascripts'], function () {
       jsFilter = plugins.filter('**/*.js'),
       htmlFilter = plugins.filter('**/*.html');
 
-  gulp.src('app/*.html')
+  return gulp.src('app/*.html')
     .pipe(plugins.useref.assets())
     .pipe(jsFilter)
     .pipe(plugins.uglify({
@@ -60,14 +61,14 @@ gulp.task('html', ['stylesheets', 'javascripts'], function () {
 });
 
 gulp.task('images', ['resize'], function () {
-  gulp.src('app/assets/images/**/*')
+  return gulp.src('app/assets/images/**/*')
     .pipe(plugins.imagemin())
     .pipe(gulp.dest('dist/assets/images'))
     .pipe(plugins.size());
 });
 
 gulp.task('javascripts', function () {
-  gulp.src('app/assets/javascripts/**/*.js')
+  return gulp.src('app/assets/javascripts/**/*.js')
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.jshint.reporter('default'))
     .pipe(plugins.size());
@@ -78,7 +79,7 @@ gulp.task('serve', ['connect', 'stylesheets', 'resize'], function () {
 });
 
 gulp.task('stylesheets', function () {
-  gulp.src('app/assets/stylesheets/app.scss')
+  return gulp.src('app/assets/stylesheets/app.scss')
     .pipe(plugins.rubySass({
       loadPath: ['app/assets/bower_components'],
       style: 'expanded'
@@ -88,13 +89,22 @@ gulp.task('stylesheets', function () {
     .pipe(plugins.size());
 });
 
+gulp.task('test', function () {
+  karma.start({
+    configFile: '../../../karma.conf.js'
+  }, function (exitCode) {
+    process.exit(exitCode);
+  });
+});
+
 gulp.task('watch', ['connect', 'serve'], function () {
   gulp.watch([
     'app/*.html',
     'app/assets/images/**/*',
     'app/assets/javascripts/**/*.js',
     'app/assets/stylesheets/**/*.css',
-    'app/assets/stylesheets/**/*.scss'
+    'app/assets/stylesheets/**/*.scss',
+    'spec/javascripts/**/*.js'
   ], function (event) {
     gulp.src(event.path)
       .pipe(plugins.connect.reload());
