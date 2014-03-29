@@ -10,7 +10,7 @@ module.exports = function (config) {
       'app/assets/bower_components/jasmine-jquery/lib/jasmine-jquery.js',
       'spec/javascripts/helpers/*Helper.js',
       'spec/javascripts/**/*Spec.js',
-      {pattern: 'spec/javascripts/fixtures/**/*.html', included: false}
+      // {pattern: 'spec/javascripts/fixtures/**/*.html', included: false}
     ],
     frameworks: ['jasmine'],
     singleRun: true
