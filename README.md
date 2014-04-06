@@ -1,6 +1,6 @@
-#generator-gulp-rk [![Build Status](https://secure.travis-ci.org/richardkall/generator-gulp-rk.png?branch=master)](https://travis-ci.org/richardkall/generator-gulp-rk)
+#generator-gulp-rk [![Build Status](https://travis-ci.org/richardkall/generator-gulp-rk.svg?branch=master)](https://travis-ci.org/richardkall/generator-gulp-rk)
 
-[Yeoman](http://yeoman.io) generator using [gulp.js](http://gulpjs.com). Work in progress.
+>[Yeoman](http://yeoman.io) generator using [gulp.js](http://gulpjs.com).
 
 ##Features
 - Bootstrap/Bourbon/Normalize.css _(optional)_
@@ -65,15 +65,12 @@ Search for images named `*@2x.*` inside `app/assets/images/` and create copies a
 
 *Runs automatically within the watch and build tasks.*
 
-##Ideas/to do
+##To do
 - Asset revisioning
 - Custom Modernizr builds
-- Ember.js/Handlebars
-- Image sprites
-- Jekyll
+- Image spriting
 - More generator tests
-- A better name...
 
 ##License
 
-Copyright (c) 2014 [Richard Käll](http://richardkall.se). Licensed under the MIT license.
+Copyright © 2014 [Richard Käll](http://richardkall.se). Licensed under the MIT license.
